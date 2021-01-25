@@ -8,6 +8,22 @@ import axios from 'axios';
 import { IntlProvider, FormattedMessage, FormattedDate } from 'react-intl';
 import Dropzone from 'react-dropzone';
 
+var path = null
+
+switch (production.env.NODE_ENV) {
+  case 'production':
+    path = 'https://tenttiappi.herokuapp.com'
+    break;
+  case 'development':
+    path = 'http://localhost:5000'
+    break;
+  case 'test':
+    path = 'http://localhost:5000'
+    break;
+  default:
+    throw "Environment not properly set!"
+}
+
 const messages = {
   en: {
     heading: 'Welcome'
@@ -75,12 +91,12 @@ function App(props) {
 
     const fetchData = async () => {
       try {
-        let result = await axios.get("http://localhost:5000/tentit")
+        let result = await axios.get(path + "https://tenttiappi.herokuapp.com/tentit")
 
         if (result.data.length > 0) {
           for (var i = 0; i < result.data.length; i++) {
             result.data[i].kysymykset = []
-            let kysymykset = await axios.get("http://localhost:5000/tenttikysymykset/" + result.data[i].id)
+            let kysymykset = await axios.get(path + "https://tenttiappi.herokuapp.com/tenttikysymykset/" + result.data[i].id)
             result.data[i].kysymykset = kysymykset.data
 
             // if (result.data[i].kysely.length > 0){
