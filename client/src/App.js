@@ -10,7 +10,7 @@ import Dropzone from 'react-dropzone';
 
 var path = null
 
-switch (production.env.NODE_ENV) {
+switch (process.env.NODE_ENV) {
   case 'production':
     path = 'https://tenttiappi.herokuapp.com'
     break;
