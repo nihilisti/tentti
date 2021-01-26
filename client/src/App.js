@@ -96,7 +96,7 @@ function App(props) {
         if (result.data.length > 0) {
           for (var i = 0; i < result.data.length; i++) {
             result.data[i].kysymykset = []
-            let kysymykset = await axios.get(path + "/tenttikysymykset" + result.data[i].id)
+            let kysymykset = await axios.get(path + "/tenttikysymykset/" + result.data[i].id)
             result.data[i].kysymykset = kysymykset.data
 
             // if (result.data[i].kysely.length > 0){
