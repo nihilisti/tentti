@@ -11,15 +11,10 @@ const { connect } = require('..')
 //   })
 
 var connectInfo = {}
+var pool = null
 
 if (process.env.HEROKU) {
-  connectInfo = {
-    user: '',
-    host: '',
-    database: '',
-    password: '',
-    port: ''
-  }
+  pool = new Pool({connectionString:process.env.DATABASE_URL})
 } else {
   connectInfo = {
     user: 'postgres',
