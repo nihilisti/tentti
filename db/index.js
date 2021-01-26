@@ -14,7 +14,7 @@ var connectInfo = {}
 var pool = null
 
 if (process.env.HEROKU) {
-  pool = new Pool({connectionString:process.env.DATABASE_URL})
+  pool = new Pool({ connectionString: process.env.DATABASE_URL })
 } else {
   connectInfo = {
     user: 'postgres',
@@ -23,9 +23,8 @@ if (process.env.HEROKU) {
     password: 'vaahter1',
     port: 5432
   }
+  const pool = new Pool(connectInfo)
 }
-
-const pool = new Pool(connectInfo)
 
 module.exports = {
   query: (text, params, callback) => {
