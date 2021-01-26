@@ -259,21 +259,21 @@ app.delete('/poistavaihtoehto/:id', (req, res, next) => {
 
 ////
 
-app.get('/', (req, res) => {
-  res.send('Goodbye World! GET')
-})
+// app.get('/', (req, res) => {
+//   res.send('Goodbye World! GET')
+// })
 
-app.post('/', (req, res) => {
-  res.send('Hello World! POST')
-})
+// app.post('/', (req, res) => {
+//   res.send('Hello World! POST')
+// })
 
-app.delete('/', (req, res) => {
-  res.send('Hello World! DELETE')
-})
+// app.delete('/', (req, res) => {
+//   res.send('Hello World! DELETE')
+// })
 
-app.put('/', (req, res) => {
-  res.send('Hello World! PUT')
-})
+// app.put('/', (req, res) => {
+//   res.send('Hello World! PUT')
+// })
 
 app.get('*', (req, rest) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
