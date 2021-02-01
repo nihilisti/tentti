@@ -23,7 +23,7 @@ if (process.env.HEROKU) {
     password: 'vaahter1',
     port: 5432
   }
-  const pool = new Pool(connectInfo)
+  pool = new Pool(connectInfo)
 }
 
 module.exports = {

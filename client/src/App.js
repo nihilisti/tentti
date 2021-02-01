@@ -2,7 +2,7 @@ import { useState, useReducer } from 'react';
 import React, { useEffect } from 'react';
 import './App.css';
 import Nav from './TenttiNav';
-// import AnswerList from './AnswerList';
+import AnswerList from './AnswerList';
 // import uuid from 'react-uuid';
 import axios from 'axios';
 import { IntlProvider, FormattedMessage, FormattedDate } from 'react-intl';
@@ -75,20 +75,6 @@ function App(props) {
 
   useEffect(() => {
 
-    // const createData = async () => {
-
-    //   try {
-
-    //     let result = await axios.post("http://localhost:3005/tentit", initialData)
-    //     dispatch({ type: "INIT_DATA", data: initialData })
-    //     // setData(initialData)
-    //     setDataAlustettu(true)
-
-    //   } catch (exception) {
-    //     alert("Tietokannan alustaminen epäonnistui")
-    //   }
-    // }
-
     const fetchData = async () => {
       try {
         let result = await axios.get(path + "/tentit")
@@ -102,7 +88,7 @@ function App(props) {
             // if (result.data[i].kysely.length > 0){
             //   for (var j = 0; j < result.data[i].kysely.length; j++){
             //     result.data[i].kysely[j].vastaukset = []
-            //     let vaihtoehdot  = await axios.get("http://localhost:5000/vaihtoehdot/" + result.data[i].kysely[j].kysymys_id)
+            //     let vaihtoehdot  = await axios.get(path + "/vaihtoehdot/" + result.data[i].kysely[j].kysymys_id)
             //     result.data[i].kysely[j].vaihtoehdot = vaihtoehdot.data
             //   }
             // }
@@ -209,7 +195,6 @@ function App(props) {
         </IntlProvider>
       </div>
       <div className="main">
-        <div className="mainContainer">
           <div className="buttonContainer">
             {data2.map((tentit, index) => <button
               key={index}
@@ -225,7 +210,6 @@ function App(props) {
               </div>
               {/* {vaihtoehdot.nimi && <AnswerList index={index} parentIndex={activeQuestions} answers={vaihtoehdot.nimi} />} */}
             </div>)}
-        </div>
         <button className="button">Näytä vastaukset</button>
         <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
           {({ getRootProps, getInputProps }) => (
