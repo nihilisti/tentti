@@ -62,6 +62,7 @@ class Chat extends Component {
                                 key={index}
                                 message={message.message}
                                 name={message.name}
+                                myName={this.state.name}
                             />,
                         )}
                     </div>
