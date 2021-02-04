@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
     return (
             <div className="container">
                 <div className="links">
-                    <a href="/" className="button">Etusivu</a>
-                    <a href="/exams" className="button">Tentit</a>
-                    <a href="/drop" className="button">Lataa tiedostoja</a>
-                    <a href="/chat" className="button">Chat</a>
+                    <Link to="/" className="button">Etusivu</Link>
+                    <Link to="/exams" className="button">Tentit</Link>
+                    <Link to="/drop" className="button">Lataa tiedostoja</Link>
+                    <Link to="/chat" className="button">Chat</Link>
                 </div>
             </div>
     )
